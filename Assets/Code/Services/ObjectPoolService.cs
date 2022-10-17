@@ -26,6 +26,7 @@ namespace Services
         {
             GameObject item = _queue.Dequeue();
             _queue.Enqueue(item);
+            item.SetActive(true);
             return item;
         }
     }
