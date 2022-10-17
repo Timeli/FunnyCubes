@@ -12,6 +12,7 @@ namespace Assets.Code.UI
         public Action<float> TimeChanged;
         public Action<float> SpeedChanged;
 
+
         private void Start()
         {
             _time.onValueChanged.AddListener(OnTimeChanged);   
@@ -24,17 +25,19 @@ namespace Assets.Code.UI
             _speed.onValueChanged.RemoveListener(OnSpeedChanged);   
         }
 
-        private void OnTimeChanged(string text)
-        {
-            TryChangedToFloat(text, TimeChanged);
-        }
+        public void SetTimeDirectly(float time) => 
+            _time.text = Math.Round(time, 1).ToString();
 
-        private void OnSpeedChanged(string text)
-        {
-            TryChangedToFloat(text, SpeedChanged);
-        }
+        public void SetSpeedDirectly(float speed) => 
+            _speed.text = Math.Round(speed, 1).ToString();
 
-        private void TryChangedToFloat(string text, Action<float> action)
+        private void OnTimeChanged(string text) => 
+            TryChangeToFloat(text, TimeChanged);
+
+        private void OnSpeedChanged(string text) => 
+            TryChangeToFloat(text, SpeedChanged);
+
+        private void TryChangeToFloat(string text, Action<float> action)
         {
             if (float.TryParse(text, out float result))
             {

@@ -4,6 +4,6 @@ namespace Services
 {
     public interface IGameFactory
     {
-        GameObject CreateCube();
+        GameObject Create(ObjectForCreate obj);
     }
 }
