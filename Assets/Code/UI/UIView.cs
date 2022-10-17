@@ -1,5 +1,4 @@
 using Assets.Code.UI;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +8,7 @@ namespace UI
     {
         [SerializeField] private Slider _time;
         [SerializeField] private Slider _speed;
+        [SerializeField] private Slider _distance;
 
         private IUIController _controller;
         private ValueProvider _valueProvider;
@@ -19,7 +19,7 @@ namespace UI
         {
             _controller = controller;
             _valueProvider = valueProvider;
-            
+
             SubscribeToSliders();
             SubscribeToValueProvider();
         }
@@ -52,13 +52,16 @@ namespace UI
             _valueProvider.SpeedChanged += SetSpeed;
         }
 
-        private void OnSpeedChanged(float speed) => 
+        private void OnSpeedChanged(float speed) =>
             _valueProvider.SetSpeedDirectly(speed);
 
         private void OnTimeChanged(float time) =>
             _valueProvider.SetTimeDirectly(time);
 
-        private void SetTime(float time) => _time.value = time;
-        private void SetSpeed(float speed) => _speed.value = speed;
+        private void SetTime(float time) =>
+            _time.value = time;
+
+        private void SetSpeed(float speed) =>
+            _speed.value = speed;
     }
 }

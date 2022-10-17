@@ -12,7 +12,6 @@ namespace Assets.Code.UI
         public Action<float> TimeChanged;
         public Action<float> SpeedChanged;
 
-
         private void Start()
         {
             _time.onValueChanged.AddListener(OnTimeChanged);   
