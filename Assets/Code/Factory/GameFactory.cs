@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Services
 {
@@ -6,6 +7,7 @@ namespace Services
     {
         private const string CubePath = "FunnyCube";
         private const string UIViewPath = "UI_elements";
+        private const string WallPath = "Wall";
 
         public GameObject Create(ObjectForCreate obj)
         {
@@ -18,29 +20,30 @@ namespace Services
                 case ObjectForCreate.UiView:
                     gameObj = CreateUIView();
                     break;
+                case ObjectForCreate.Wall:
+                    gameObj = CreateWall();
+                    break;
             }
             return gameObj;
         }
 
-        private GameObject CreateCube()
-        {
-            return UnityEngine.GameObject.Instantiate(LoadPrefab(CubePath));
-        }
+        private GameObject CreateWall() =>
+            UnityEngine.GameObject.Instantiate(LoadPrefab(WallPath));
 
-        private GameObject CreateUIView()
-        {
-            return UnityEngine.GameObject.Instantiate(LoadPrefab(UIViewPath));
-        }
+        private GameObject CreateCube() =>
+            UnityEngine.GameObject.Instantiate(LoadPrefab(CubePath));
 
-        private GameObject LoadPrefab(string path)
-        {
-            return Resources.Load<GameObject>(path);
-        }
+        private GameObject CreateUIView() =>
+            UnityEngine.GameObject.Instantiate(LoadPrefab(UIViewPath));
+
+        private GameObject LoadPrefab(string path) =>
+            Resources.Load<GameObject>(path);
     }
 
     public enum ObjectForCreate
     {
         Cube,
         UiView,
+        Wall
     }
 }
