@@ -14,19 +14,26 @@ namespace UI
             _objectPool = objectPool;
         }
 
-        public void Update(float speed, bool color)
+        public void Update(float speed, bool color, bool random)
         {
             UnityEngine.GameObject cube = _objectPool.GetNextItem();
 
-            if (color)
+            if (random && color)
             {
-                _cubeModel.Fly(cube, speed, color: true);
+                _cubeModel.FlyColorRandom(cube, speed);
+            }
+            else if (random)
+            {
+                _cubeModel.FlyRandom(cube, speed);
+            }
+            else if (color)
+            {
+                _cubeModel.FlyColor(cube, speed);
             }
             else
             {
                 _cubeModel.Fly(cube, speed);
             }
-                
         }
     }
 }

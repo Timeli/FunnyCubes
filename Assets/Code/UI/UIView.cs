@@ -37,7 +37,7 @@ namespace UI
             _elapsedTime += Time.deltaTime;
             if (_elapsedTime >= _time.value)
             {
-                _controller.Update(_speed.value, _withColor);
+                _controller.Update(_speed.value, _withColor, _withRandom);
                 _elapsedTime = 0;
             }
         }
