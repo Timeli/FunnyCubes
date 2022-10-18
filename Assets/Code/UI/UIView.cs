@@ -17,7 +17,7 @@ namespace UI
 
         private bool _withColor;
         private bool _withRandom;
-        private bool _withEffect;
+        private bool _withRotate;
         
         private float _elapsedTime;
 
@@ -37,7 +37,7 @@ namespace UI
             _elapsedTime += Time.deltaTime;
             if (_elapsedTime >= _time.value)
             {
-                _controller.Update(_speed.value, _withColor, _withRandom, _withEffect);
+                _controller.Update(_speed.value, _withColor, _withRandom, _withRotate);
                 _elapsedTime = 0;
             }
         }
@@ -46,7 +46,7 @@ namespace UI
         private void SetSpeed(float speed) => _speed.value = speed;
         private void SetDistance(float distance) => _distance.value = distance;
 
-        private void SetEffects(bool value) => _withEffect = value;
+        private void SetRotate(bool value) => _withRotate = value;
         private void SetRandom(bool value) => _withRandom = value;
         private void SetColor(bool value) => _withColor = value;
 
@@ -71,7 +71,7 @@ namespace UI
         {
             _toggleProvider.OnColorChanged += SetColor;
             _toggleProvider.OnRandomChanged += SetRandom;
-            _toggleProvider.OnEffectsChanged += SetEffects;
+            _toggleProvider.OnRotateChanged += SetRotate;
         }
 
         private void SubscribeToSliders()

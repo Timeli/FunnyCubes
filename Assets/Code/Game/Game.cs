@@ -34,7 +34,14 @@ namespace Game
         private void CreateScene()
         {
             UIView uiView = CreateUI();
+            CreateCurtain(uiView);
             CreateWall(uiView);
+        }
+
+        private void CreateCurtain(UIView uiView)
+        {
+            var curtainPrefab = _gameFactory.Create(ObjectForCreate.Curtain);
+            curtainPrefab.GetComponent<CurtainLogic>().Construct(uiView);
         }
 
         private UIView CreateUI()

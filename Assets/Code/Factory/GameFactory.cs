@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Services
 {
@@ -8,12 +7,16 @@ namespace Services
         private const string CubePath = "FunnyCube";
         private const string UIViewPath = "UI_elements";
         private const string WallPath = "Wall";
+        private const string CurtainPath = "Curtain";
 
         public GameObject Create(ObjectForCreate obj)
         {
             GameObject gameObj = null;
             switch (obj)
             {
+                case ObjectForCreate.Curtain:
+                    gameObj = CreateCurtain();
+                    break;
                 case ObjectForCreate.Cube:
                     gameObj = CreateCube();
                     break;
@@ -26,6 +29,9 @@ namespace Services
             }
             return gameObj;
         }
+
+        private GameObject CreateCurtain() =>
+            UnityEngine.GameObject.Instantiate(LoadPrefab(CurtainPath));
 
         private GameObject CreateWall() =>
             UnityEngine.GameObject.Instantiate(LoadPrefab(WallPath));
@@ -44,6 +50,7 @@ namespace Services
     {
         Cube,
         UiView,
-        Wall
+        Wall,
+        Curtain
     }
 }

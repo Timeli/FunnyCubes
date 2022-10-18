@@ -6,7 +6,7 @@ namespace Services
     public class ObjectPoolService : IObjectPool
     {
         private readonly Queue<GameObject> _queue;
-        private IGameFactory _gameFactory;
+        private readonly IGameFactory _gameFactory;
 
         public ObjectPoolService(IGameFactory gameFactory)
         {

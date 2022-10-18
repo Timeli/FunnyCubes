@@ -2,6 +2,6 @@
 {
     public class Constants
     {
-        public const int CubesPullCapacity = 50;
+        public const int CubesPullCapacity = 99;
     }
 }

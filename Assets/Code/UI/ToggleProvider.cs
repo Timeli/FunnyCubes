@@ -10,7 +10,7 @@ public class ToggleProvider : MonoBehaviour
 
     public Action<bool> OnColorChanged;
     public Action<bool> OnRandomChanged;
-    public Action<bool> OnEffectsChanged;
+    public Action<bool> OnRotateChanged;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class ToggleProvider : MonoBehaviour
     }
 
     private void EffectToggleChange(bool value) => 
-        OnEffectsChanged?.Invoke(value);
+        OnRotateChanged?.Invoke(value);
 
     private void RandomToggleChange(bool value) => 
         OnRandomChanged?.Invoke(value);
