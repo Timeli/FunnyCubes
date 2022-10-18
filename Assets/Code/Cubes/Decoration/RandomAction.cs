@@ -8,10 +8,13 @@ namespace Cubes
         private const float YMin = -0.5f; 
         
         private const float XMax = 2.3f;
-        private const float XMin = -2.3f; 
+        private const float XMin = -2.3f;
 
-        public override void Apply(Cube cube) => 
+        public override Cube Do(Cube cube)
+        {
             cube.SetPosition(NextPosion());
+            return cube;
+        }
 
         private Vector3 NextPosion()
         {

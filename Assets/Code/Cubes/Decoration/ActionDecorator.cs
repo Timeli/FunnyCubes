@@ -2,6 +2,6 @@
 {
     public abstract class ActionDecorator
     {
-        public abstract void Apply(Cube cube);
+        public abstract Cube Do(Cube cube);
     }
 }

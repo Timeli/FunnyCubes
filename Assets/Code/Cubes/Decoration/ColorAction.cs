@@ -11,10 +11,12 @@ namespace Cubes
             _block = new();
         }
 
-        public override void Apply(Cube cube)
+        public override Cube Do(Cube cube)
         {
             _block.SetColor("_Color", NextColor());
             cube.SetColor(_block);
+            
+            return cube;
         }
 
         private Color NextColor() =>

@@ -2,6 +2,6 @@
 {
     public interface IUIController
     {
-        void Update(float speed, bool color, bool random);
+        void Update(float speed, bool color, bool random, bool effect);
     }
 }
